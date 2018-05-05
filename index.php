@@ -1,22 +1,5 @@
 <?php 
-    //start a session - users browser
-    session_start();
-
-    //setting a cookie
-    $sessionID = session_id(); //storing session id
-
-    //generate CSRF token
-    if(empty($_SESSION['key']))
-    {
-        $_SESSION['key']=bin2hex(random_bytes(32));
-    }
-
-    $token = hash_hmac('sha256',$sessionID,$_SESSION['key']);
     
-
-    setcookie("session_id_ass2",$sessionID,time()+3600,"localhost/ass2","localhost",false,true); //cookie terminates after 1 hour - HTTP only flag
-    setcookie("csrf_token",$token,time()+3600,"localhost/ass2","localhost",false,true); //csrf token cookie
-
 
 ?>
 
@@ -117,8 +100,6 @@ p {
 
 
 </div>
-<!-- Assign CSRF token to hidden variable -->
-<script> document.getElementById("csToken").value = '<?php echo $token; ?>' </script>
 
 </body>
 </html>

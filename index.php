@@ -1,5 +1,9 @@
 <?php 
-   
+   require 'config.php';
+
+   session_start();
+
+      
    
 
 ?>
@@ -8,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Secure Software System Assignment 2 - IT16024700 </title>
+<title> Secure Software System Assignment 3 - IT16024700 </title>
 <meta charset="utf-8"/>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" id="bootstrap-css" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"> </script>
@@ -59,7 +63,7 @@ p {
 
 <div class="middlePage">
 <div class="page-header">
-    <h1 class="logo">Assignment 2 <small> [ Cross-Site Request forgery protection - Asy ] </small> </h1>
+    <h1 class="logo">Assignment 3 <small> [ Facebook Social OAUTH 2.0  ] </small> </h1>
 </div> 
 
 <div class="panel panel-info">
@@ -70,7 +74,7 @@ p {
     <div class ="panel-body">
         <div class="row">
             <div class="col-md-5">
-            <a href="#"><img src="fb.png" width="200" heigt="100"/></a><br/><br/>
+            <a href="https://www.facebook.com/dialog/oauth?response_type=code&client_id=174875303212995&redirect_uri=https%3A%2F%2Flocalhost%2FFacebook-Social-OAUTH-2.0%2Findex.php&scope=public_profile%20user_photos"><img src="fb.png" width="200" heigt="100"/></a><br/><br/>
             <a href="#"><img src="gmail.png" width="200" heigt="100"/></a><br/><br/>
             <a href="#"><img src="link.png" width="200" heigt="150"/></a>
             </div>
@@ -91,13 +95,13 @@ p {
 </div>
 
 
-
     
                 
 
 
 <p><a href="https://www.facebook.com/nisal.priyanka.9">Design and Created By </a> .Nisal Priyanka  </p>
-<p><a href="https://github.com/NisalPriyanka/Cross-site-Request-Forgery-protection---Asynchronics">GIT HUB PROJECT </a> @NisalPriyanka  </p>
+<p><a href="#">GIT HUB PROJECT </a> @NisalPriyanka  </p>
+
 
 
 </div>

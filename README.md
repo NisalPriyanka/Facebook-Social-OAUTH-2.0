@@ -23,9 +23,9 @@
   <p> <li> Following paremeters should change in functions </li> </p>
    <li> AUTH_URL($client_id,$redirect_url) => change both $client_id, $redirect_uri (where my Authorization code should send) </li>
    <li> get_auth_code($client_id, $redirect_uri, $auth_code, $appID_secret_base64) => change $client_id, $redirect_uri (where my Access token should send), $appID_secret_base64. <b>Don't touch $auth_code parameter</b> </li>
-  <li> Here is flow of the codes.. 
+  <li> The flow of the Redirect_URI should go like this..
     <br/> AUTH_URI function should always redirect to redirect.php page <br/>
-          get_auth_code( function is also should always redirect to the redirect.php page <br/>
+          get_auth_code function is also should always redirect to the redirect.php page <br/>
           </li>
   
    <li> Done!</li>

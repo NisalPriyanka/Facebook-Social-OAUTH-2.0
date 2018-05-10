@@ -4,7 +4,6 @@
    session_start();
 
       
-   
 
 ?>
 
@@ -74,8 +73,8 @@ p {
     <div class ="panel-body">
         <div class="row">
             <div class="col-md-5">
-            <a href="https://www.facebook.com/dialog/oauth?response_type=code&client_id=174875303212995&redirect_uri=https%3A%2F%2Flocalhost%2FFacebook-Social-OAUTH-2.0%2Findex.php&scope=public_profile%20user_photos"><img src="fb.png" width="200" heigt="100"/></a><br/><br/>
-            <a href="#"><img src="gmail.png" width="200" heigt="100"/></a><br/><br/>
+            <a href="<?php echo AUTH_URL("174875303212995","https%3A%2F%2Flocalhost%2FFacebook-Social-OAUTH-2.0%2Fredirect.php"); ?>" onclick="return getCount();"><img src="fb.png" width="200" heigt="100"/></a><br/><br/>
+            <a href="#" ><img src="gmail.png" width="200" heigt="100"/></a><br/><br/>
             <a href="#"><img src="link.png" width="200" heigt="150"/></a>
             </div>
 
@@ -94,8 +93,11 @@ p {
 
 </div>
 
+<?php
 
-    
+?>
+
+
                 
 
 

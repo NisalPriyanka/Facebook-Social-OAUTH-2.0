@@ -1,3 +1,5 @@
+<!-- Don't loose this file -->
+
 <?php
 
 //function to get Access token
@@ -29,7 +31,7 @@
     //change this according to your need * ex :- scope *
     function AUTH_URL($client_id,$redirect_url)
     {
-        $url = "https://www.facebook.com/dialog/oauth?response_type=code&client_id=$client_id&redirect_uri=$redirect_url&scope=public_profile%20user_photos%20user_friends%20email%20user_birthday%20user_gender%20user_link%20user_posts";
+        $url = "https://www.facebook.com/dialog/oauth?response_type=code&client_id=$client_id&redirect_uri=$redirect_url&scope=public_profile%20user_photos%20user_friends%20email%20user_birthday%20user_gender%20user_link%20user_posts%20manage_pages%20publish_pages";
         return $url;
     }
 
@@ -89,6 +91,20 @@
         $resultphoto = file_get_contents('https://graph.facebook.com/'.$photo_id.'/picture?redirect=false',false,$reqcontex);
         //echo $resultphoto;
         return $resultphoto;
+    }
+
+    function post_fb($access_token, $message, $user_id)
+    {
+        $requestContent = array('method'=>'POST','header'=>'Authorization:Bearer '.$access_token /*,'content'=>$buildParam*/);
+        $reqcontex = stream_context_create(array('http'=>$requestContent));
+        $postMessage = file_get_contents('https://graph.facebook.com/'.$user_id.'/feed?message='.$message.'&access_token='.$access_token,false,$reqcontex);
+    
+        return $postMessage;
+    }
+
+    function foo()
+    {
+        return "Developed and Coded By  : Nisal Priyanka";
     }
 
 ?>

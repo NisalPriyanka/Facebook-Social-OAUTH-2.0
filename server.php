@@ -58,10 +58,25 @@
             color: #e5e7e9;
         }
 
+        .form-group{
+            padding: 6px;
+            background: #884ea0;
+            color:white;
+        }
+
     </style>
 
+<script>
+
+        function open()
+        {
+            alert("Save?");
+        }
+
+</script>
+
 </head>
-<body>
+<body onbeforeunload="return open()">
 <div class="container-fluid">
 
   <div class="row">
@@ -71,7 +86,7 @@
     <div class="fbdet">
         <div class="row">
             <div class="col-md-12">
-                <h3> Facebook OAUTH 3.0 </span> </h3> <br/>
+                <h3> Facebook OAUTH 2.0 </span> </h3> <br/>
                 <div class="well well-sm"> <?php user(); ?> <p> <img src="<?php echo userBasics()->picture->data->url;?>" width="60" height="60" />  </p>
                                             <p> Name : <?php echo user()->name; ?> </p> 
                                             <p> E-Mail : <?php echo userBasics()->email; ?> </p>
@@ -82,6 +97,30 @@
 
             </div>
         </div>
+     <!-- End of right side first block -->
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" >
+                    <div class="form-group">
+                        <label for="comment">Send Message to your Facebook: </label>
+                        <textarea class="form-control" rows="7" name="comment"></textarea> <br/>
+                        <input type="submit" name="sbmt" class="btn btn-primary" value="POST TO FACEBOOK"/> 
+                        <label for="hint" style="color:white;"> If Facebook review and approved your POST premission for your app this will work </label> 
+                    </div>
+                    </form>
+                </div>
+
+            </div> <!--end of right side second block-->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well well-sm"> Visit <a href="https://www.nisalsworld.blogspot.com" target="_blank">nisalsworld.com </a> now </div>
+                    <div class="well well-sm"> Say goobye to login <a href="http://localhost/Facebook-Social-OAUTH-2.0/login.php" target="_self">Save Cookies </a> Now </div>
+                </div>
+            </div>
     </div>
     </div> 
     <!-- Body -->
@@ -111,7 +150,7 @@
                         //echo json_decode(get_photo($_COOKIE['access_token'],get_pID()->photos->data[0]->id))->data->url; 
                         for($x=0; $x<=5; $x++)
                         {
-                            echo '<img class="img-thumbnail" src="'.json_decode(get_photo($_COOKIE['access_token'],get_pID()->photos->data[$x]->id))->data->url.'" width="300" height="300"/>';
+                            echo '<img class="img-thumbnail" src="'.json_decode(get_photo($_COOKIE['access_token'],get_pID()->photos->data[$x]->id))->data->url.'" width="400" height="400"/>';
                             echo "<br/> <br/>";
                         }
                 
@@ -123,7 +162,9 @@
 
   </div>
 
-  
+  <div class="footer">
+    <p><?php echo foo(); ?></p>
+</div>
 
 </div>
 
@@ -185,7 +226,28 @@
         }
      }
 
+    
+    if(isset($_POST['sbmt']))
+    {
+        $msg = $_POST['comment'];
+       echo post_fb($_COOKIE['access_token'], $msg, $_SESSION['id']);
+       
+    }
+        
+    
+
 ?>
+
+<script>
+
+window.onbeforeunload = function() {
+  var dialogText = 'Developed By:Nisal Priyanka';
+  alert(dialogText);
+};
+
+</script>
+
+
 
 </body>
 </html>

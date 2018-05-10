@@ -5,11 +5,15 @@
 
     session_start();
 
+    echo "Getting Responses! Please wait! ";
+    echo "Developed by : Nisal Priyanka";
+
 ?>
 
 
 <?php
 
+  
 
   if(isset($_GET['code']))
   {
@@ -23,7 +27,7 @@
     //set cookie including access token
     if(!isset($_COOKIE['access_token']))
     {
-      echo "cookie not set";
+      echo "cookie setting! Please Wait!";
       setcookie("access_token",$token_json->access_token,time()+3600,"/","localhost");
       echo '<script> window.location.assign("https://localhost/Facebook-Social-OAUTH-2.0/server.php") </script>';
     }

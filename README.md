@@ -8,8 +8,10 @@
   <li> Copy https://localhost/Facebook-Social-OAUTH-2.0/index.php, https://localhost/Facebook-Social-OAUTH-2.0/server.php , https://localhost/Facebook-Social-OAUTH-2.0/redirect.php into your facebook APP "Valid OAuth Redirect URIs"  </li>
   <li> 
     Change follwing parameters in following functions.
-     <li> AUTH_URL($client_id,$redirect_url) -> change $client_id = your App id </li>
+    <p>AUTH_URL($client_id,$redirect_url) -> change $client_id = your App id </p>
+    <p>get_auth_code($client_id, $redirect_uri, $auth_code, $appID_secret_base64) -> change $client_id, $appID_secret_base64=Base64(YourAppId:Secret)  </p>
   </li>
+  <li> Done! </li>
   
   
 </ul>
